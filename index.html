@@ -1,1 +1,323 @@
-<h1> Hello world </h1>
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<div id="my_dataviz2"></div>
+<style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+.ticks {
+  font: 10px sans-serif;
+}
+
+.axisRed line{
+  stroke: red;
+}
+
+.axisRed path{
+  stroke: red;
+}
+
+.axisRed text{
+  fill: black;
+}  
+  
+  
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.tooltip {
+        color: #222;
+        background-color: #fff;
+        padding: .5em;
+        text-shadow: #f5f5f5 0 1px 0;
+        border-radius: 2px;
+        opacity: 0.9;
+        position: absolute;
+}  
+  
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: crosshair;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+}
+  </style>
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 30, bottom: 30, left: 60},
+    width = 750 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+     
+  // // Parse the Data
+
+d3.csv("final_data2.csv", function(data) {
+	d3.csv("villes.csv",function(data2){
+  // List of groups = header of the csv files
+  var keysville=data2.columns.slice(0)
+//   console.log(keysville)
+    
+    // Add text
+    var alt_max=500;
+    var log_alt_max=Math.log(alt_max)
+  svg.selectAll("text")
+                 .data(data2)
+                        .enter()
+                        .append("text")
+.text( function (d) { return "-----" +  d.Ville +""; })
+                 .attr("font-family", "sans-serif")
+                 .attr("font-size", "15px")
+//                  .attr("fill", "red")
+                 .attr("x", function(d) { return 5+((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*width/log_alt_max; })
+                 .attr("y", function(d) { return height-((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*height/log_alt_max; })
+    					.on("mousemove", function(d) {
+               var mouse = d3.mouse(svg.node()).map(function(d) {
+                  return parseInt(d);
+                })
+               tooltip.classed("hidden", false)
+                  .attr("style", "left:" + (mouse[0] + 15) +
+                     "px; top:" + (mouse[1] - 35) + "px")
+                  .html(d.Ville+' : '+d.Altitude + ' m' + '<br\>'+
+                       'Population : ' + d.Population);
+            })
+           .on("mouseout", function() {
+    						 tooltip.style("opacity", 0);
+           });
+    
+  // Add X axis
+  
+  var x = d3.scaleLog()
+    .domain([0.001,alt_max])
+    .range([ 0, width ]);
+  
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+//     .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLog()
+    .domain([0.001,alt_max])
+    .range([ height,0 ]);
+  
+    svg.append("g")
+    .call(d3.axisLeft(y));
+// 	Add diag line
+    svg.append('line')
+    .style('stroke', 'blue')
+    .style('stroke-width', 1)
+    .attr('x1', 0)
+    .attr('y1', height)
+    .attr('x2', width)
+    .attr('y2', 0);
+   var svgbis = d3.select("#my_dataviz").append("svg")
+      .attr("width", width+margin)
+      .attr("height", height)
+    
+   var g = svg.append("g");
+    
+   var x = d3.scaleLinear()
+    .domain([1880, 2389])
+    .range([150, width])
+    .clamp(true);
+
+	var slider = svgbis.append("g")
+    .attr("class", "slider")
+    .attr("transform", "translate(0,50)");
+                              
+slider.append("line")
+    .attr("class", "track")
+    .attr("x1", x.range()[0])
+    .attr("x2", x.range()[1])
+  	.select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-inset")
+  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-overlay")
+    .call(d3.drag()
+        .on("start.interrupt", function() { slider.interrupt(); })
+        .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+
+    slider.insert("g", ".track-overlay")
+    .attr("class", "ticks")
+    .attr("transform", "translate(0," + 18 + ")")
+  .selectAll("text")
+  .data(x.ticks(10))
+  .enter().append("text")
+    .attr("x", x)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return d; });
+    
+    var handle = slider.insert("circle", ".track-overlay")
+    .attr("class", "handle")
+    .attr("r", 9);
+
+  function draw_triangles(y_1,x3_1,color1,y_2,x3_2,color2,y_3,x3_3,color3){
+  svg.selectAll("polygon").remove()
+  svg.append("polygon")
+         .attr('points',"0,"+height+" 0,"+(height-(y_1))+" "+(x3_1)+","+(height-(y_1)))
+         .style('fill', color1)
+  			 .style("opacity", 0.5)
+  svg.append("polygon")
+         .attr('points',"0,"+height+" 0,"+(height-(y_2))+" "+(x3_2)+","+(height-(y_2)))
+         .style('fill', color2)
+  			 .style("opacity", 0.5)
+  svg.append("polygon")
+         .attr('points',"0,"+height+" 0,"+(height-(y_3))+" "+(x3_3)+","+(height-(y_3)))
+         .style('fill', color3)
+  			 .style("opacity", 0.5)
+};
+  function hue(h) {
+  handle.attr("cx", x(h));
+  
+    var i = parseInt(x(h))-150
+    
+var h_mer64=data[i].pred64
+var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))/Math.log(10)
+        var y=log_h_mer64*height/log_alt_max
+        var x3=log_h_mer64*width/log_alt_max
+        console.log(x3,y,h_mer64)
+        // triangle.   
+
+    
+var h_mer85=data[i].pred85
+var log_h_mer85=(Math.log(h_mer85)-Math.log(0.001))/Math.log(10)
+        var y_2=log_h_mer85*height/log_alt_max
+        var x3_2=log_h_mer85*width/log_alt_max
+        console.log(x3,y,h_mer85)
+        // triangle.   
+        
+var h_mer125=data[i].pred125
+var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
+        var y_3=log_h_mer125*height/log_alt_max
+        var x3_3=log_h_mer125*width/log_alt_max
+        console.log(x3,y,h_mer125)
+        // triangle.   
+         draw_triangles(y,x3,'3393FF',y_2,x3_2,'3393FF',y_3,x3_3,'3393FF')
+    }
+
+    slider.transition() 
+    .duration(750)
+    .tween("hue", function() {
+      //var i = d3.interpolate(0, 100);
+      return function(t) { hue(t); };
+    });
+		
+// set the dimensions and margins of the streamgraph
+// var marginstream = {top: 0, right: 0, bottom: 0, left: 0},
+//     widthstream = 750 - marginstream.left - marginstream.right,
+//     heightstream = 400 - marginstream.top - marginstream.bottom;
+
+// // append the svg object to the body of the page
+// var svgs = d3.select("#my_dataviz")
+//   .append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
+//   .append("g")
+//     .attr("transform",
+//           "translate(" + margin.left + "," + margin.top + ")");
+    var final_year=2016
+    var keys = [
+     "temperature",
+//               "pred64",
+               "pred85",
+//              "pred105", 
+//               "pred125"
+             ]
+    
+    var tooltip = d3.select("body").append("div")
+         .attr("class", "hidden tooltip");
+    
+//    var xstream= d3.scaleLinear()
+    x.domain(d3.extent(data, function(d) { if (d.year < final_year) {return d.year;} }))
+    .range([ 150, width ]);
+  
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+//     .call(d3.axisBottom(xstream).ticks(10));
+
+  // Add Y axis 
+  var ystream = d3.scaleLinear()
+    .domain([-.5, 3])
+    .range([ height, 0 ]);
+  
+    svg.append("g").attr("transform", "translate(660," + 0 + ")")
+    .call(d3.axisRight(ystream))
+    .attr('class',"axisRed")
+    
+    svg.append("g").attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+		.attr('class',"axisRed")
+// color palette
+  var color = d3.scaleOrdinal()
+    .domain(keys)
+ .range(['#ffffff','#ea0e33','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+  
+
+//   //stack the data?
+  var stackedData = d3.stack()
+    //.offset(d3.stackOffsetSilhouette)
+    .keys(keys)
+    (data)
+
+//   // Show the areas
+  svg
+    .selectAll("mylayers")
+    .data(stackedData)
+    .enter()
+    .append("path")
+      .style("fill", function(d) { return color(d.key); })
+      .attr("d", d3.area()
+        .x(function(d, i) { return x(d.data.year); })
+        .y0(function(d) { return ystream(d[0]); })
+        .y1(function(d) { return ystream(d[1]); })
+    ) .on("mouseover", function(d) {
+               var mouse = d3.mouse(svg.node()).map(function(d) {
+                  return parseInt(d);
+                })
+               tooltip.classed("hidden", false)
+                  .attr("style", "left:" + (mouse[0] + 15) +
+                     "px; top:" + (mouse[1] - 35) + "px")
+                  .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
+                      + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
+            })
+           .on("mouseout", function() {
+    						 tooltip.style("opacity", 0);
+           });
+
+        
+  })
+ })
+</script>
