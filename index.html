@@ -6,7 +6,7 @@
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
-<!--<div id="my_dataviz2"></div> -->
+<div id="my_dataviz2"></div>
 <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
 .ticks {
@@ -143,7 +143,7 @@ d3.csv("final_data2.csv", function(data) {
     .attr('y1', height)
     .attr('x2', width)
     .attr('y2', 0);
-   var svgbis = d3.select("#my_dataviz").append("svg")
+   var svgbis = d3.select("#my_dataviz2").append("svg")
       .attr("width", width+margin)
       .attr("height", height)
     
