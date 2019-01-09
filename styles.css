@@ -18,6 +18,6 @@ body {
 }
 
 .center-div2 {
- display:block;
- margin: 10px auto;
+ display:inline-block;
+ margin: 0 auto;
 }
