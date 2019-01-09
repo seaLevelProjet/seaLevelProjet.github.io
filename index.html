@@ -383,7 +383,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
     .range([ height,0 ]);
   
     svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y).ticks(5).tickFormat(d3.format("0")));
 // 	Add diag line
     svg.append('line')
     .style('stroke', 'blue')
