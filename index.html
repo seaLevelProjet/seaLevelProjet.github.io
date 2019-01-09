@@ -29,11 +29,11 @@
 }
 
 .axisRed line{
-  stroke: #f29d32;
+  stroke: red;
 }
 
 .axisRed path{
-  stroke: #f29d32;
+  stroke: red;
 }
 
 .axisRed text{
@@ -84,6 +84,202 @@
   </style>
 <script>
 
+  
+  
+  
+  
+  
+  
+function vagues(a,b,c) {
+    
+    var color = d3.scaleSequential(d3.interpolateBlues),
+        waves, x, y, r, data;
+
+    draw();
+    d3.timer(animate);
+
+
+    function draw(r) {
+        var example = d3.select("#my_dataviz");
+            width = 660,
+            height = 350;
+        x = d3.scaleLinear().range([0, width]);
+        y = d3.scaleLinear().range([height, 0]);
+            
+        if (!data)
+            data = [a, b, c].map(function (d, i) {
+                var w = wave()
+                    //.radius(0.016192*(i+1)*height)
+                    //.waveLength(0.144*(i+1))
+                    .radius(0.00524013004652535*height)
+                    .waveLength(0.20939046912)
+                    .y(d);
+                w.area.x(function (dd) {
+                    return x(dd.x) + dd.dx;
+                }).y1(function (dd) {
+                    return y(dd.y) - dd.dy;
+                }).y0(function () {
+                    return y(0);
+                });
+                return w;
+            });
+
+    /*    example.select('.svg').remove();
+				
+        var svg = example
+                .append('svg')
+                .classed('paper', true)
+                .attr('width', width).attr('height', height).canvasResolution(r).canvas(true)
+                .style('opacity', 0.8); */
+      					
+
+        waves = svg
+            .append('g')
+            .classed('waves', true)
+            .selectAll('path')
+            .data(data)
+            .enter()
+            .append('path')
+            .style('opacity', 0.5)
+      			.style('fill', "#3393FF")
+
+         surf = svg.append('text')
+            .text("🏄🏼‍♀️")
+            .style('text-anchor', 'middle')
+            .style('alignment-baseline', 'middle')
+            .style("font-size", "40px");
+
+        moveBoat();
+        
+     svg.append("polygon").attr('points',"0,350 700,-20 700,350").style("fill", "white")
+     svg.append("polygon").attr('points',"-100,500 -100,0 0,0 0,350").style("fill", "white")
+    }
+    
+    
+   
+    function animate () {
+        waves.each(function (d) {
+            d3.select(this).attr('d', d.tick());
+
+        });
+        moveBoat();   
+    }
+  
+    function moveBoat() {
+        var d = data[2].point(10);
+        surf.attr("transform", "translate(" + (x(d.x) + d.dx) + ", " + (y(d.y) - d.dy) + ")");
+    }
+    
+    
+    
+    
+    
+    
+    
+    function wave() {
+        var radius = 0.1,       // intensity of wave
+            waveLength = 1,     // wave length
+            y = 0,
+            area = d3.area().curve(d3.curveNatural),
+            extent = [0, 1],
+            pi = Math.PI,
+            cos = Math.cos,
+            sin = Math.sin,
+            N = 8,
+            speed = 0.02,
+            time = 0;
+
+        function wave (d) {
+            return area(wave.points(d));
+        }
+
+        wave.area = area;
+
+        wave.tick = function () {
+            time += 1;
+            return wave;
+        };
+
+        wave.context = function (_) {
+            if (!arguments.length) return area.context();
+            area.context(_);
+            return wave;
+        };
+
+        wave.extent = function (_) {
+            if (!arguments.length) return extent;
+            extent = _;
+            return wave;
+        };
+
+        wave.N = function (_) {
+            if (!arguments.length) return N;
+            N = +_;
+            return wave;
+        };
+
+        wave.waveLength = function (_) {
+            if (!arguments.length) return waveLength;
+            waveLength = _;
+            return wave;
+        };
+
+        wave.y = function (_) {
+            if (!arguments.length) return y;
+            y = _;
+            return wave;
+        };
+
+        wave.radius = function (_) {
+            if (!arguments.length) return radius;
+            radius = _;
+            return wave;
+        };
+
+        wave.speed = function (_) {
+            if (!arguments.length) return speed;
+            speed = _;
+            return wave;
+        };
+
+        wave.points = function () {
+            var w = extent[1] - extent[0] + 2*waveLength,
+                dx = waveLength/N,
+                Nx = Math.round(w/dx) + 1;
+
+            return d3.range(Nx).map(point);
+        };
+
+        wave.point = point;
+
+        function point (i) {
+            var da = 2*pi/N,
+                dx = waveLength/N,
+                x0 = extent[0] - waveLength,
+                a = i*da - time*speed*pi;
+
+            return {
+                x: x0 + i * dx,
+                y: y,
+                angle: a,
+                radius: radius,
+                dx: radius * cos(a),
+                dy: radius * sin(a)
+            };
+        }
+
+        return wave;
+    }
+};  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 30, bottom: 30, left: 60},
     width = 750 - margin.left - margin.right,
@@ -103,7 +299,183 @@ var svg = d3.select("#my_dataviz")
 d3.csv("final_data2.csv", function(data) {
 	d3.csv("villes.csv",function(data2){
   // List of groups = header of the csv files
-  var keysville=data2.columns.slice(0)
+    
+    
+  function hue(h) {
+  handle.attr("cx", x(h));
+  svg.selectAll("path").remove() 
+  svg.selectAll("text").remove()
+  svg.selectAll("polygon").remove()
+  svg.selectAll("line").remove()
+    var alt_max=500;
+    var log_alt_max=Math.log(alt_max)  
+    var i = parseInt(x(h))-150
+    
+var h_mer64=data[i].pred64
+var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))/Math.log(10)
+        var y_1=log_h_mer64*height/log_alt_max
+        var x3_1=log_h_mer64*width/log_alt_max
+        console.log(x3_1,y_1,h_mer64)
+        // triangle.   
+
+    
+var h_mer85=data[i].pred85
+var log_h_mer85=(Math.log(h_mer85)-Math.log(0.001))/Math.log(10)
+        var y_2=log_h_mer85*height/log_alt_max
+        var x3_2=log_h_mer85*width/log_alt_max
+        console.log(x3_2,y_2,h_mer85)
+        // triangle.   
+        
+var h_mer125=data[i].pred125
+var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
+        var y_3=log_h_mer125*height/log_alt_max
+        var x3_3=log_h_mer125*width/log_alt_max
+        console.log(x3_3,y_3,h_mer125)
+        // triangle.   
+        // draw_triangles(y,x3,'3393FF',y_2,x3_2,'3393FF',y_3,x3_3,'3393FF')
+        
+        
+       vagues(y_1/350,y_2/350,y_3/350)   
+       
+       
+       
+         var keysville=data2.columns.slice(0)
+//   console.log(keysville)
+    
+    // Add text
+  svg.selectAll("text")
+                 .data(data2)
+                        .enter()
+                        .append("text")
+.text( function (d) { return "-----" +  d.Ville +""; })
+                 .attr("font-family", "sans-serif")
+                 .attr("font-size", "15px")
+//                  .attr("fill", "red")
+                 .attr("x", function(d) { return 5+((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*width/log_alt_max; })
+                 .attr("y", function(d) { return height-((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*height/log_alt_max; })
+    					.on("mousemove", function(d) {
+               var mouse = d3.mouse(svg.node()).map(function(d) {
+                  return parseInt(d);
+                })
+               tooltip.classed("hidden", false)
+                  .attr("style", "left:" + (mouse[0] + 15) +
+                     "px; top:" + (mouse[1] - 35) + "px")
+                  .html(d.Ville+' : '+d.Altitude + ' m' + '<br\>'+
+                       'Population : ' + d.Population);
+            })
+           .on("mouseout", function() {
+    						 tooltip.style("opacity", 0);
+           });
+    
+  // Add X axis
+  
+  var xbis = d3.scaleLog()
+    .domain([0.001,alt_max])
+    .range([ 0, width ]);
+  
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+//     .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLog()
+    .domain([0.001,alt_max])
+    .range([ height,0 ]);
+  
+    svg.append("g")
+    .call(d3.axisLeft(y));
+// 	Add diag line
+    svg.append('line')
+    .style('stroke', 'blue')
+    .style('stroke-width', 1)
+    .attr('x1', 0)
+    .attr('y1', height)
+    .attr('x2', width)
+    .attr('y2', 0);
+      
+    
+    
+    
+    
+    
+    
+    
+    
+        var final_year=2016
+    var keys = [
+     "temperature",
+//               "pred64",
+               "pred85",
+//              "pred105", 
+//               "pred125"
+             ]
+    
+    var tooltip = d3.select("body").append("div")
+         .attr("class", "hidden tooltip");
+    
+//    var xstream= d3.scaleLinear()
+    x.domain(d3.extent(data, function(d) { if (d.year < final_year) {return d.year;} }))
+    .range([ 150, width ]);
+  
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+//     .call(d3.axisBottom(xstream).ticks(10));
+
+  // Add Y axis 
+  var ystream = d3.scaleLinear()
+    .domain([-.5, 3])
+    .range([ height, 0 ]);
+  
+    svg.append("g").attr("transform", "translate(660," + 0 + ")")
+    .call(d3.axisRight(ystream))
+    .attr('class',"axisRed")
+    
+    svg.append("g").attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+		.attr('class',"axisRed")
+// color palette
+  var color = d3.scaleOrdinal()
+    .domain(keys)
+ .range(['#ffffff','#ea0e33','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+  
+
+//   //stack the data?
+  var stackedData = d3.stack()
+    //.offset(d3.stackOffsetSilhouette)
+    .keys(keys)
+    (data)
+
+//   // Show the areas
+  svg
+    .selectAll("mylayers")
+    .data(stackedData)
+    .enter()
+    .append("path")
+      .style("fill", function(d) { return color(d.key); })
+      .attr("d", d3.area()
+        .x(function(d, i) { return x(d.data.year); })
+        .y0(function(d) { return ystream(d[0]); })
+        .y1(function(d) { return ystream(d[1]); })
+    ) .on("mouseover", function(d) {
+               var mouse = d3.mouse(svg.node()).map(function(d) {
+                  return parseInt(d);
+                })
+               tooltip.classed("hidden", false)
+                  .attr("style", "left:" + (mouse[0] + 15) +
+                     "px; top:" + (mouse[1] - 35) + "px")
+                  .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
+                      + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
+            })
+           .on("mouseout", function() {
+    						 tooltip.style("opacity", 0);
+           });
+    
+    
+    
+    }
+
+  
+/*  var keysville=data2.columns.slice(0)
 //   console.log(keysville)
     
     // Add text
@@ -158,6 +530,7 @@ d3.csv("final_data2.csv", function(data) {
     .attr('y1', height)
     .attr('x2', width)
     .attr('y2', 0);
+  */  
    var svgbis = d3.select("#my_dataviz2").append("svg")
       .attr("width", width+margin)
       .attr("height", height)
@@ -183,7 +556,9 @@ slider.append("line")
     .attr("class", "track-overlay")
     .call(d3.drag()
         .on("start.interrupt", function() { slider.interrupt(); })
-        .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+        .on("start drag", function() { 
+  hue(x.invert(d3.event.x)); 
+}));
 
     slider.insert("g", ".track-overlay")
     .attr("class", "ticks")
@@ -199,8 +574,16 @@ slider.append("line")
     .attr("class", "handle")
     .attr("r", 9);
 
+    slider.transition() // Gratuitous intro!
+    .duration(750)
+    .tween("hue", function() {
+      //var i = d3.interpolate(0, 510);
+      return function(t) { hue(t); };
+    });
+    
+    
   function draw_triangles(y_1,x3_1,color1,y_2,x3_2,color2,y_3,x3_3,color3){
-  svg.selectAll("polygon").remove()
+  //svg.selectAll("polygon").remove()
   svg.append("polygon")
          .attr('points',"0,"+height+" 0,"+(height-(y_1))+" "+(x3_1)+","+(height-(y_1)))
          .style('fill', color1)
@@ -214,41 +597,8 @@ slider.append("line")
          .style('fill', color3)
   			 .style("opacity", 0.5)
 };
-  function hue(h) {
-  handle.attr("cx", x(h));
   
-    var i = parseInt(x(h))-150
-    
-var h_mer64=data[i].pred64
-var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))/Math.log(10)
-        var y=log_h_mer64*height/log_alt_max
-        var x3=log_h_mer64*width/log_alt_max
-        console.log(x3,y,h_mer64)
-        // triangle.   
 
-    
-var h_mer85=data[i].pred85
-var log_h_mer85=(Math.log(h_mer85)-Math.log(0.001))/Math.log(10)
-        var y_2=log_h_mer85*height/log_alt_max
-        var x3_2=log_h_mer85*width/log_alt_max
-        console.log(x3,y,h_mer85)
-        // triangle.   
-        
-var h_mer125=data[i].pred125
-var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
-        var y_3=log_h_mer125*height/log_alt_max
-        var x3_3=log_h_mer125*width/log_alt_max
-        console.log(x3,y,h_mer125)
-        // triangle.   
-         draw_triangles(y,x3,'3393FF',y_2,x3_2,'3393FF',y_3,x3_3,'3393FF')
-    }
-
-    slider.transition() 
-    .duration(750)
-    .tween("hue", function() {
-      //var i = d3.interpolate(0, 100);
-      return function(t) { hue(t); };
-    });
 		
 // set the dimensions and margins of the streamgraph
 // var marginstream = {top: 0, right: 0, bottom: 0, left: 0},
@@ -263,7 +613,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
 //   .append("g")
 //     .attr("transform",
 //           "translate(" + margin.left + "," + margin.top + ")");
-    var final_year=2016
+/*    var final_year=2016
     var keys = [
      "temperature",
 //               "pred64",
@@ -298,7 +648,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
 // color palette
   var color = d3.scaleOrdinal()
     .domain(keys)
- .range(['#f0f0f0','#f29d32','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+ .range(['#ffffff','#ea0e33','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
   
 
 //   //stack the data?
@@ -332,7 +682,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
     						 tooltip.style("opacity", 0);
            });
 
-        
+  */      
   })
  })
 </script>
