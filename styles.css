@@ -8,12 +8,11 @@ body {
   background: #bcbddc; 
   color: white;
   font-size: 30px;
-  font-family: Arial;
+  font-family: Arial; 
   margin: 0;
 }
 
 .center-div {
   display:table;
   margin: 0 auto;
-  width: 39%;
 }
