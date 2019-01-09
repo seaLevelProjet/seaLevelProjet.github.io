@@ -182,11 +182,11 @@ function vagues(a,b,c) {
             y = 0,
             area = d3.area().curve(d3.curveNatural),
             extent = [0, 1],
-            pi = Math.PI,
+            pi = 2*Math.PI,
             cos = Math.cos,
             sin = Math.sin,
             N = 8,
-            speed = 0.02,
+            speed = 0.025,
             time = 0;
 
         function wave (d) {
@@ -358,8 +358,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                   return parseInt(d);
                 })
                tooltip.classed("hidden", false)
-                  .attr("style", "left:" + (mouse[0] + 200) +
-                     "px; top:" + (mouse[1] - 200) + "px")
+                  .attr("style", "left:" + (mouse[0] - 200) +
+                     "px; top:" + (mouse[1] + 200) + "px")
                   .html(d.Ville+' : '+d.Altitude + ' m' + '<br\>'+
                        'Population : ' + d.Population);
             })
@@ -461,8 +461,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                   return parseInt(d);
                 })
                tooltip.classed("hidden", false)
-                  .attr("style", "left:" + (mouse[0] + 200) +
-                     "px; top:" + (mouse[1] - 200) + "px")
+                  .attr("style", "left:" + (mouse[0] - 200) +
+                     "px; top:" + (mouse[1] + 200) + "px")
                   .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
                       + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
             })
