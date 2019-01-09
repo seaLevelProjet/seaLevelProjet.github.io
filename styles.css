@@ -3,7 +3,7 @@ body {
 }
 
 .header {
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   background: #3182bd; 
   color: white;
@@ -19,5 +19,5 @@ body {
 
 .center-div2 {
  display:table;
- margin: 8% auto;
+ margin: 1% auto;
 }
