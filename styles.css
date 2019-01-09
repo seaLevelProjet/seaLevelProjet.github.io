@@ -18,7 +18,5 @@ body {
 }
 
 .center-div2 {
-  display:table;
-  margin: 0 auto;
- margin-left: 1px;
+ margin-left: 32%;
 }
