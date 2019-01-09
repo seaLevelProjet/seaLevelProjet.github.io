@@ -21,5 +21,6 @@ body {
 .center-div2 {
  display:inline-block;
  width:100;
- margin-auto: 0 auto;
+ margin: 0 auto;
+ padding: 0 auto;
 }
