@@ -392,11 +392,11 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                tooltip.classed("hidden", false)
                   .attr("style", "left:" + (mouse[0] + 450) +
                      "px; top:" + (mouse[1] + 200) + "px")
-                  .html(d.Ville+' : '+d.Altitude + ' m' + '<br\>'+
+                  .html('Altitude '+' : '+d.Altitude + ' m' + '<br\>'+
                        'Population : ' + d.Population);
             })
            .on("mouseout", function() {
-    						 tooltip.style("opacity", 0);
+    		tooltip.style("opacity", 0);
            });
     
   // Add X axis
@@ -498,11 +498,10 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                tooltip.classed("hidden", false)
                   .attr("style", "left:" + (mouse[0] + 550) +
                      "px; top:" + (mouse[1] + 200) + "px")
-                  .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
-                      + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
+                  .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0])));
             })
            .on("mouseout", function() {
-    						 tooltip.style("opacity", 0);
+    		tooltip.style("opacity", 0);
            });
     
     svg.append("text")             
