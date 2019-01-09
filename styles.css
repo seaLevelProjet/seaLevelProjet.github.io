@@ -1,12 +1,12 @@
 .center-div {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 50%;
+  margin-right: 50%;
   width: 200px;
 }
 
 .title {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 50%;
+  margin-right: 50%;
   width: 200px;
   background-color: #d1d1e0;
 }
