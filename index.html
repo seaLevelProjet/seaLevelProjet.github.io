@@ -178,8 +178,8 @@ function vagues(a,b,c) {
       
         moveBoat();
         
-     svg.append("polygon").attr('points',"-1,351 703,-21 703,351").style("fill", "white")
-     svg.append("polygon").attr('points',"-100,500 -100,0 0,0 0,350").style("fill", "white")
+     svg.append("polygon").attr('points',"-1,351 703,-21 703,351").style("fill", "#f0f0f0")
+     svg.append("polygon").attr('points',"-100,500 -100,0 0,0 0,350").style("fill", "#f0f0f0")
     }
     
     
@@ -391,7 +391,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                 })
                tooltip.classed("hidden", false)
                   .attr("style", "left:" + (mouse[0] + 450) +
-                     "px; top:" + (mouse[1] - 35) + "px")
+                     "px; top:" + (mouse[1] + 200) + "px")
                   .html(d.Ville+' : '+d.Altitude + ' m' + '<br\>'+
                        'Population : ' + d.Population);
             })
@@ -497,7 +497,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                 })
                tooltip.classed("hidden", false)
                   .attr("style", "left:" + (mouse[0] + 550) +
-                     "px; top:" + (mouse[1] - 35) + "px")
+                     "px; top:" + (mouse[1] + 200) + "px")
                   .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
                       + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
             })
@@ -586,39 +586,6 @@ slider.append("line")
       //var i = d3.interpolate(0, 510);
       return function(t) { hue(t,149); };
     });
-   
-    
-  function draw_triangles(y_1,x3_1,color1,y_2,x3_2,color2,y_3,x3_3,color3){
-  //svg.selectAll("polygon").remove()
-  svg.append("polygon")
-         .attr('points',"0,"+height+" 0,"+(height-(y_1))+" "+(x3_1)+","+(height-(y_1)))
-         .style('fill', "#f0f0f0")
-  			 .style("opacity", 0.5)
-  svg.append("polygon")
-         .attr('points',"0,"+height+" 0,"+(height-(y_2))+" "+(x3_2)+","+(height-(y_2)))
-         .style('fill', "#f0f0f0")
-  			 .style("opacity", 0.5)
-  svg.append("polygon")
-         .attr('points',"0,"+height+" 0,"+(height-(y_3))+" "+(x3_3)+","+(height-(y_3)))
-         .style('fill', "#f0f0f0")
-  			 .style("opacity", 0.5)
-};
-  
-
-		
-// set the dimensions and margins of the streamgraph
-// var marginstream = {top: 0, right: 0, bottom: 0, left: 0},
-//     widthstream = 750 - marginstream.left - marginstream.right,
-//     heightstream = 400 - marginstream.top - marginstream.bottom;
-
-// // append the svg object to the body of the page
-// var svgs = d3.select("#my_dataviz")
-//   .append("svg")
-//     .attr("width", width + margin.left + margin.right)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform",
-//           "translate(" + margin.left + "," + margin.top + ")");
      
   })
  })
