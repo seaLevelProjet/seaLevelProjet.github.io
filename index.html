@@ -383,8 +383,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                  .attr("font-family", "sans-serif")
                  .attr("font-size", "15px")
 //                  .attr("fill", "red")
-                 .attr("x", function(d) { return 5+((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*width/log_alt_max; })
-                 .attr("y", function(d) { return height-((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*height/log_alt_max; })
+                 .attr("x", function(d) { return 5+((Math.log(d.Altitude)-Math.log(0.001)+0.26)/Math.log(10))*width/log_alt_max; })
+                 .attr("y", function(d) { return height-((Math.log(d.Altitude)-Math.log(0.001)+0.26)/Math.log(10))*height/log_alt_max; })
     					.on("mousemove", function(d) {
                var mouse = d3.mouse(svg.node()).map(function(d) {
                   return parseInt(d);
