@@ -461,8 +461,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
                   return parseInt(d);
                 })
                tooltip.classed("hidden", false)
-                  .attr("style", "left:" + (mouse[0] + 550) +
-                     "px; top:" + (mouse[1] + 200) + "px")
+                  .attr("style", "left:" + (mouse[0] + 560) +
+                     "px; top:" + (mouse[1] + 220) + "px")
                   .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0]))
                       + ' ' + Math.floor(y.invert(d3.mouse(this)[1])));
             })
