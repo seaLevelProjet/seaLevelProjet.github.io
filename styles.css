@@ -19,5 +19,6 @@ body {
 
 .center-div2 {
   display:table;
-  margin: -50px auto;
+  margin: 0 auto;
+ margin-left: 1px;
 }
