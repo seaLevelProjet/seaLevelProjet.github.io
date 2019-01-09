@@ -151,8 +151,8 @@ function vagues(a,b,c) {
 
         moveBoat();
         
-     svg.append("polygon").attr('points',"0,350 700,-20 700,350").style("fill", "white")
-     svg.append("polygon").attr('points',"-100,500 -100,0 0,0 0,350").style("fill", "white")
+     svg.append("polygon").attr('points',"0,350 700,-20 700,350").style("fill", "#f0f0f0")
+     svg.append("polygon").attr('points',"-100,500 -100,0 0,0 0,350").style("fill", "#f0f0f0")
     }
     
     
@@ -436,7 +436,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
 // color palette
   var color = d3.scaleOrdinal()
     .domain(keys)
- .range(['#ffffff','#ea0e33','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+ .range(['#f0f0f0','#ea0e33','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
   
 
 //   //stack the data?
