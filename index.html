@@ -535,6 +535,14 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
     	.style("font-weight","bold")
       .style("fill",'#007ef4')   
       .text("Niveau de la mer (en mètres)")
+	 
+     svg.append("text")
+      .text("Année : "+(i+1880))
+      .attr("y", 50)
+      .attr("x", 120)
+      .attr("font-size", 20)
+      .attr("font-family", "monospace")	 
+	  
     
     }
 
