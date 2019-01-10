@@ -348,7 +348,7 @@ d3.csv("final_data2.csv", function(data) {
     var i = parseInt(x(h))-150
     }
 var h_mer64=data[i].pred64
-var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))/Math.log(10)
+var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))*1.05/Math.log(10)
         var y_1=log_h_mer64*height/log_alt_max
         var x3_1=log_h_mer64*width/log_alt_max
         console.log(x3_1,y_1,h_mer64)
@@ -356,14 +356,14 @@ var log_h_mer64=(Math.log(h_mer64)-Math.log(0.001))/Math.log(10)
 
     
 var h_mer85=data[i].pred85
-var log_h_mer85=(Math.log(h_mer85)-Math.log(0.001))/Math.log(10)
+var log_h_mer85=(Math.log(h_mer85)-Math.log(0.001))*1.05/Math.log(10)
         var y_2=log_h_mer85*height/log_alt_max
         var x3_2=log_h_mer85*width/log_alt_max
         console.log(x3_2,y_2,h_mer85)
         // triangle.   
         
 var h_mer125=data[i].pred125
-var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))/Math.log(10)
+var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
         var y_3=log_h_mer125*height/log_alt_max
         var x3_3=log_h_mer125*width/log_alt_max
         console.log(x3_3,y_3,h_mer125)
