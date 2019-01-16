@@ -24,3 +24,10 @@ body {
  margin: 0 auto;
  padding: 0 auto;
 }
+
+.button {
+ -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  float: left;
+  border: 1px solid blue;
+}
