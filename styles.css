@@ -34,11 +34,11 @@ body {
 
 .button1 {
   background-color: #ff8e00; 
-  color: black; 
+  color: white; 
   border: 2px solid #ff8e00;
 }
 
 .button1:hover {
-  background-color: white;
+  background-color: black;
   color: white;
 }
