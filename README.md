@@ -5,11 +5,11 @@ Notre visualisation a pour but de montrer l'évolution du niveau de la mer.
 Nous avons récupéré des données du niveau de la mer de 1880 à 2015 en considérant que le niveau de la mer vaut 0 en 1880.
 Nous avons aussi des données de température de 1880 à 2015.
 
-De plus, en se basant sur ces données, nous avons fait des prédictions (sur R) du niveau de la mer et de la température jusqu'en 2400. Nous avons réalisé trois prédictions : une optimiste, une pessimiste et une moyenne. Pour cela nous avons utilisé un modèle exponentiel en faisant varié le paramètre avec 3 valeurs différentes.
+De plus, en se basant sur ces données, nous avons fait des prédictions (sur R) du niveau de la mer et de la température jusqu'en 2400. Nous avons réalisé trois prédictions : une optimiste, une pessimiste et une intermédiaire. Pour cela nous avons utilisé un modèle exponentiel en faisant varié le paramètre avec 3 valeurs différentes.
 
-METTRE LIENS DES DONNÉES
+Les jeux de données ont été récupérés à cette adresse : https://datahub.io/core/sea-level-rise#resource-sea-level-rise_zip
 
-# Objectif
+# Objectifs
 Notre objectif est de montrer la corrélation entre l'augmentation de la température et l'augmentation du niveau de la mer mais aussi de montrer les conséquences possibles de ces augmentations.
 
 # Réalisation
@@ -18,7 +18,7 @@ La visualisation comporte deux graphiques :
 - Un "triangle" (en haut à gauche) : Ce triangle représente une côte qui se fait peu à peu submerger par l'eau. Ce graphique permet de voir la montée des eaux au cours du temps à l'aide du slider temporel placé au dessus de la visualisation.
 Le long de la pente sont placés plusieurs grandes villes dans le but d'observer les villes qui seront submergées si le phénomène continue sur cette lancée. En passant sur une ville on peut obtenir des informations supplémentaires comme l'altitude, la population, ...
 
-- Un streamgraph : Ce streamgraph permet de visualiser à la fois l'évolution de l'augmentation de la température moyenne sur la surface du globe au cours du temps mais aussi l'évolution de la température moyenne de la Terre grâce à l'épaisseur du streamgraph. On voit une corrélation entre niveau de la mer et température puisque au cours des année le niveau de la mer et la température augmente en même temps.
+- Un streamgraph : Ce streamgraph permet de visualiser à la fois l'évolution de l'augmentation de la température moyenne sur la surface du globe au cours du temps mais aussi l'évolution de la température moyenne de la Terre grâce à l'épaisseur du streamgraph. On voit une corrélation entre niveau de la mer et température puisque au cours des années le niveau de la mer et la température augmente en même temps.
 
 # Améliorations
 
@@ -30,7 +30,7 @@ Suite à la présentation, nous avons modifié des éléments de la visualisatio
 
 Un élément à été ajouté à la visualisation :
 
-- Une jauge verticale : Sur les versions 2 et 3 (qui font suite à la présentation), nous avons placé une jauge verticale à gauche des graphiques pour permettre d'observer la montée des eaux de manière linéaire. Cela permet de bien voir l'explosion du phénomène qui n'était pas visible avec l'échelle logarithmique utilisée pour le graphique. Nous avons fait le choix de laisser l'échelle logarithmique qui permet de voir les petites variations du niveau de la mer qui ne sont pas visibles avec l'échelle logarithmique.
+- Une jauge verticale : Sur les versions 2 et 3 (qui font suite à la présentation), nous avons placé une jauge verticale à gauche des graphiques pour permettre d'observer la montée des eaux de manière linéaire. Cela permet de bien voir l'explosion du phénomène qui n'était pas visible avec l'échelle logarithmique utilisée pour le graphique. Nous avons fait le choix de laisser l'échelle logarithmique qui permet de voir les petites variations du niveau de la mer qui ne sont pas visibles avec l'échelle linéaire.
 
 Nous avons aussi modifié l'affichage des villes le long de la pente.
 
