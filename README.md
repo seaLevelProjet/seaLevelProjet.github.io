@@ -9,7 +9,29 @@ De plus, en se basant sur ces données, nous avons fait des prédictions (sur R)
 
 METTRE LIENS DES DONNÉES
 
-# Objectif :
+# Objectif
 Notre objectif est de montrer la corrélation entre l'augmentation de la température et l'augmentation du niveau de la mer mais aussi de montrer les conséquences possibles de ces augmentations.
+
+# Réalisation
+La visualisation comporte deux graphiques :
+
+- Un "triangle" (en haut à gauche) : Ce triangle représente une côte qui se fait peu à peu submerger par l'eau. Ce graphique permet de voir la montée des eaux au cours du temps à l'aide du slider temporel placé au dessus de la visualisation.
+Le long de la pente sont placés plusieurs grandes villes dans le but d'observer les villes qui seront submergées si le phénomène continue sur cette lancée. En passant sur une ville on peut obtenir des informations supplémentaires comme l'altitude, la population, ...
+
+- Un streamgraph : Ce streamgraph permet de visualiser à la fois l'évolution de l'augmentation de la température moyenne sur la surface du globe au cours du temps mais aussi l'évolution de la température moyenne de la Terre grâce à l'épaisseur du streamgraph. On voit une corrélation entre niveau de la mer et température puisque au cours des année le niveau de la mer et la température augmente en même temps.
+
+# Améliorations
+
+Suite à la présentation, nous avons modifié des éléments de la visualisation. Nous avons réalisé deux versions :
+
+-Version 2 : Version qui ne comporte pas les prédictions de température jusqu'en 2400. Il nous a été demandé d'ajouté les prédictions de températures jusqu'en 2400 sur le streamgraph, nous pensons qu'en ajoutant cela la visualisation n'est plus esthétique. C'est la version que nous préférons.
+
+-Version 3 : Version qui comporte les prédictions de température sur le streamgraph.
+
+Un élément à été ajouté à la visualisation :
+
+- Une jauge verticale : Sur les versions 2 et 3 (qui font suite à la présentation), nous avons placé une jauge verticale à gauche des graphiques pour permettre d'observer la montée des eaux de manière linéaire. Cela permet de bien voir l'explosion du phénomène qui n'était pas visible avec l'échelle logarithmique utilisée pour le graphique. Nous avons fait le choix de laisser l'échelle logarithmique qui permet de voir les petites variations du niveau de la mer qui ne sont pas visibles avec l'échelle logarithmique.
+
+Nous avons aussi modifié l'affichage des villes le long de la pente.
 
 
