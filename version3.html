@@ -1,4 +1,36 @@
 <!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<!-- Create a div where the graph will take place -->
+
+<div class="header">
+  <h1>Sea Level</h1>
+  <p>Projet Data Visualisation</p>
+  <div class="divbutton">
+  	<a href="https://sealevelprojet.github.io/version2.html"><input class="button1" type="button" value="Version 2"></a>
+  	<a href="https://sealevelprojet.github.io/version3.html"><input class="button1" type="button" value="Version 3"></a>
+  </div>
+</div>
+
+<div class="container">
+<div id="my_dataviz2" class="center-div"></div>
+<div id="my_dataviz" class="center-div"></div>
+</div>
+<!--
+<br\>
+<br\>
+
+<div class="container">
+<div id="my_dataviz2" class="center-div2"></div>
+</div>
+-->
+<!DOCTYPE html>
 <meta charset="utf-8">
 
 <!-- Load d3.js -->
@@ -510,7 +542,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
     
     
     
-        var final_year=2390
+        var final_year=2016
     var keys = [
      "temperature",
 //               "pred64",
@@ -532,7 +564,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
 
   // Add Y axis 
   var ystream = d3.scaleLinear()
-    .domain([-.5, 30])
+    .domain([-.5, 3])
     .range([ height, 0 ]);
   
     svg.append("g").attr("transform", "translate(660," + 0 + ")")
