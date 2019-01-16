@@ -398,8 +398,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
                   return parseInt(d);
                 })
                tooltip.classed("hidden", false)
-                  .attr("style", "left:" + (mouse[0] + 450) +
-                     "px; top:" + (mouse[1] + 200) + "px")
+                  .attr("style", "left:" + (mouse[0] + 400) +
+                     "px; top:" + (mouse[1] + 350) + "px")
                   .html('Altitude moyenne '+' : '+d.Altitude + ' m' + '<br\>'+
                        'Population : ' + d.Population);
             })
@@ -504,8 +504,8 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
                   return parseInt(d);
                 })
                tooltip.classed("hidden", false)
-                  .attr("style", "left:" + (mouse[0] + 550) +
-                     "px; top:" + (mouse[1] + 200) + "px")
+                  .attr("style", "left:" + (mouse[0] + 400) +
+                     "px; top:" + (mouse[1] + 350) + "px")
                   .html('Année : ' + Math.floor(x.invert(d3.mouse(this)[0])));
             })
            .on("mouseout", function() {
