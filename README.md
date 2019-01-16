@@ -34,4 +34,5 @@ Un élément à été ajouté à la visualisation :
 
 Nous avons aussi modifié l'affichage des villes le long de la pente.
 
-
+# Sources
+Pour réaliser ce projet, nous nous sommes inspirés des exemples de Mike Bostock ainsi que de cette visualisation : https://bl.ocks.org/lsbardel/d686414f38742cb60c3bf3f21b79b9df (pour faire les vagues).
