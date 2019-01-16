@@ -24,9 +24,9 @@ Le long de la pente sont placés plusieurs grandes villes dans le but d'observer
 
 Suite à la présentation, nous avons modifié des éléments de la visualisation. Nous avons réalisé deux versions :
 
--Version 2 : Version qui ne comporte pas les prédictions de température jusqu'en 2400. Il nous a été demandé d'ajouté les prédictions de températures jusqu'en 2400 sur le streamgraph, nous pensons qu'en ajoutant cela la visualisation n'est plus esthétique. C'est la version que nous préférons.
+- Version 2 : Version qui ne comporte pas les prédictions de température jusqu'en 2400. Il nous a été demandé d'ajouté les prédictions de températures jusqu'en 2400 sur le streamgraph, nous pensons qu'en ajoutant cela la visualisation n'est plus esthétique. C'est la version que nous préférons.
 
--Version 3 : Version qui comporte les prédictions de température sur le streamgraph.
+- Version 3 : Version qui comporte les prédictions de température sur le streamgraph.
 
 Un élément à été ajouté à la visualisation :
 
