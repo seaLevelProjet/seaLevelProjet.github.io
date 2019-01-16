@@ -38,6 +38,7 @@ body {
   border: 1px solid #ff8e00;
   width: 200px;
   font-size: 16px;
+  padding: 15px 32px;
 }
 
 .button1:hover {
