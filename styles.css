@@ -41,6 +41,8 @@ body {
   height: 70px;
   text-align: center;
   cursor: pointer;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
 }
 
 .button1:hover {
