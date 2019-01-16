@@ -40,7 +40,6 @@ body {
   padding: 15px 32px;
   height: 55px;
   text-align: center;
-  cursor: pointer;
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
