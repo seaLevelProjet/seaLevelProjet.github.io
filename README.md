@@ -9,6 +9,8 @@ De plus, en se basant sur ces données, nous avons fait des prédictions (sur R)
 
 Les jeux de données ont été récupérés à cette adresse : https://datahub.io/core/sea-level-rise#resource-sea-level-rise_zip
 
+
+
 # Objectifs
 Notre objectif est de montrer la corrélation entre l'augmentation de la température et l'augmentation du niveau de la mer mais aussi de montrer les conséquences possibles de ces augmentations.
 
