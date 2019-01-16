@@ -381,7 +381,6 @@ d3.csv("final_data2.csv", function(data) {
   svg.selectAll("text").remove()
   svg.selectAll("polygon").remove()
   svg.selectAll("line").remove()  
-  svg.selectAll("line").remove()
   svg.selectAll("circle").remove()
   svg_gauge.selectAll("text").remove()
   
@@ -490,11 +489,11 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
                  .attr("x", function(d) { return 5+((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*width/log_alt_max; })
                  .attr("y", function(d) { return height-((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*height/log_alt_max; })*/
     
-        svg.selectAll("dot") 
+        svg.selectAll("circle") 
                  .data(data2)
                  .enter()
                  .append("circle") 
-    .attr("class", "dot")
+    .attr("class", "circle")
     .attr("r", function(d){if (1.5*Math.log(d.Population/100000) <=3) return 3
         else return 1.5*Math.log(d.Population/100000)})
     .attr("cx", function(d) {return ((Math.log(d.Altitude)-Math.log(0.001))/Math.log(10))*width*1.05/log_alt_max; })
