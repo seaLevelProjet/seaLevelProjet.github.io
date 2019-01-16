@@ -32,14 +32,13 @@ body {
  padding: 0 auto;
 }
 
-.button {
- -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  float: left;
-  border: 1px solid blue;
+.button2 {
+  background-color: #008CBA; 
+  color: black; 
+  border: 2px solid #008CBA;
 }
 
-.button:hover {
-  background-color: #4CAF50; /* Green */
+.button2:hover {
+  background-color: white;
   color: white;
 }
