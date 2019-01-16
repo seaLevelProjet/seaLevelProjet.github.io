@@ -33,9 +33,9 @@ body {
 }
 
 .button1 {
-  background-color: #008CBA; 
+  background-color: #ff8e00; 
   color: black; 
-  border: 2px solid #008CBA;
+  border: 2px solid #ff8e00;
 }
 
 .button1:hover {
