@@ -14,7 +14,7 @@
 4. [Improvements](#Improvements)
 5. [Sources](#Source)
 
-![](seaLevel.gif)
+![](SeaLevel.gif)
 
 # Prédiction de la hausse du niveau de la mer
 
