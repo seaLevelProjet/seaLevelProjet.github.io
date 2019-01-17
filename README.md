@@ -1,6 +1,6 @@
 # seaLevelProjet.github.io
 
-![ScreenShot](seaLevel.png)
+![](seaLevel.png)
 
 # Table of Contents
 1. [Données](#Données)
@@ -14,7 +14,7 @@
 4. [Improvements](#Improvements)
 5. [Sources](#Source)
 
-![](seaLevelVign.gif)
+<p align="center"> ![](seaLevelVign.gif) </p>
 
 # Prédiction de la hausse du niveau de la mer
 
