@@ -9,7 +9,7 @@
 4. [Améliorations](#Améliorations)
 5. [Sources](#Sources)
 1. [Data](#Data)
-2. [Objectives of the project](#{Objectives of the project})
+2. [Objectives of the project](#Objectives)
 3. [Realization](#Realization)
 4. [Improvements](#Improvements)
 5. [Sources](#Source)
@@ -68,7 +68,7 @@ In addition, based on these data, we made predictions (on R) of sea level and te
 
 The data sets were retrieved from this address: https://datahub.io/core/sea-level-rise#resource-sea-level-rise_zip
 
-# Objectives of the project
+# Objectives
 Our objective is to show the correlation between temperature increase and sea level rise but also to show the possible consequences of these increases.
 
 
