@@ -20,7 +20,7 @@ La visualisation comporte deux graphiques :
 - Un "triangle" (en haut à gauche) : Ce triangle représente une côte qui se fait peu à peu submerger par l'eau. Ce graphique permet de voir la montée des eaux au cours du temps à l'aide du slider temporel placé au dessus de la visualisation.
 Le long de la pente sont placés plusieurs grandes villes dans le but d'observer les villes qui seront submergées si le phénomène continue sur cette lancée. En passant sur une ville on peut obtenir des informations supplémentaires comme l'altitude, la population, ...
 
-- Un streamgraph : Ce streamgraph permet de visualiser à la fois l'évolution de l'augmentation de la température moyenne sur la surface du globe au cours du temps mais aussi l'évolution de la température moyenne de la Terre grâce à l'épaisseur du streamgraph. On voit une corrélation entre niveau de la mer et température puisque au cours des années le niveau de la mer et la température augmente en même temps.
+- Un streamgraph : Ce streamgraph permet de visualiser à la fois l'évolution de l'augmentation de la température moyenne sur la surface du globe au cours du temps mais aussi l'évolution du niveau de la mer sur Terre grâce à l'épaisseur du streamgraph. On voit une corrélation entre niveau de la mer et température puisque au cours des années le niveau de la mer et la température augmente en même temps.
 
 # Améliorations
 
@@ -60,7 +60,7 @@ The visualization consists of two graphs:
 - A "triangle" (top left): This triangle represents a coast that is gradually being submerged by water. This graph allows to see the rise of the water over time using the temporal slider placed above the visualization.
 Along the slope are placed several large cities in order to observe the cities that will be submerged if the phenomenon continues in this direction. By passing over a city you can obtain additional information such as altitude, population,...
 
-- A streamgraph: This streamgraph makes it possible to visualize both the evolution of the increase in the average temperature on the surface of the globe over time but also the evolution of the average temperature of the Earth thanks to the thickness of the streamgraph. There is a correlation between sea level and temperature since over the years sea level and temperature increase at the same time.
+- A streamgraph: This streamgraph makes it possible to visualize both the evolution of the increase in the average temperature on the surface of the globe over time but also the evolution of sea level on Earth thanks to the thickness of the streamgraph. There is a correlation between sea level and temperature since over the years sea level and temperature increase at the same time.
 
 # Improvements
 
