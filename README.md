@@ -7,12 +7,19 @@
 # Table of Contents
 1. [Données](#Données)
 2. [Objectifs](#Objectifs)
-
+3. [Réalisation](#Réalisation)
+4. [Améliorations](#Améliorations)
+5. [Sources](#Sources)
+1. [Data](#Data)
+2. [Objectives of the project](#Objectives of the project)
+3. [Realization](#Realization)
+4. [Improvements](#Improvements)
+5. [Sources](#Source)
 
 
 # Prédiction de la hausse du niveau de la mer
 
-## Données
+# Données
 Notre visualisation a pour but de montrer l'évolution du niveau de la mer.
 Nous avons récupéré des données du niveau de la mer de 1880 à 2015 en considérant que le niveau de la mer vaut 0 en 1880.
 Nous avons aussi des données de température de 1880 à 2015.
@@ -88,6 +95,6 @@ An element has been added to the visualization:
 
 We also modified the display of cities along the slope.
 
-# Sources
+# Source
 To carry out this project, we drew inspiration from Mike Bostock's examples and this visualization: https://bl.ocks.org/lsbardel/d686414f38742cb60c3bf3f21b79b9df (to make the waves).
 
