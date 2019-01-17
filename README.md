@@ -1,6 +1,6 @@
 # seaLevelProjet.github.io
 
-![](seaLevel.png)
+![ScreenShot](seaLevel.png)
 
 # Table of Contents
 1. [Données](#Données)
