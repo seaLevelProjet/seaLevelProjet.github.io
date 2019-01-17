@@ -1,8 +1,6 @@
 # seaLevelProjet.github.io
 
 
-![](seaLevelVignette.gif)
-
 
 # Table of Contents
 1. [Données](#Données)
@@ -11,11 +9,12 @@
 4. [Améliorations](#Améliorations)
 5. [Sources](#Sources)
 1. [Data](#Data)
-2. [Objectives of the project](#Objectives of the project)
+2. [Objectives of the project](#{Objectives of the project})
 3. [Realization](#Realization)
 4. [Improvements](#Improvements)
 5. [Sources](#Source)
 
+![](seaLevelVignette.gif)
 
 # Prédiction de la hausse du niveau de la mer
 
