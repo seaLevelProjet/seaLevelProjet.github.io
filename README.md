@@ -1,5 +1,11 @@
 # seaLevelProjet.github.io
 
+
+![](seaLevelVignette.gif)
+
+
+# Prédiction de la hausse du niveau de la mer
+
 # Données
 Notre visualisation a pour but de montrer l'évolution du niveau de la mer.
 Nous avons récupéré des données du niveau de la mer de 1880 à 2015 en considérant que le niveau de la mer vaut 0 en 1880.
@@ -41,7 +47,7 @@ Pour réaliser ce projet, nous nous sommes inspirés des exemples de Mike Bostoc
 
 
 
-
+# Sea Level Rise Prediction
 
 # Data
 Our visualization is intended to show the evolution of sea level. We have retrieved sea level data from 1880 to 2015 based on the assumption that sea level was 0 in 1880. We also have temperature data from 1880 to 2015.
