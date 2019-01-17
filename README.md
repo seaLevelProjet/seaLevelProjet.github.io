@@ -53,7 +53,6 @@ The data sets were retrieved from this address: https://datahub.io/core/sea-leve
 # Objectives of the project
 Our objective is to show the correlation between temperature increase and sea level rise but also to show the possible consequences of these increases.
 
-Translated with www.DeepL.com/Translator
 
 # Realization
 The visualization consists of two graphs:
@@ -80,4 +79,3 @@ We also modified the display of cities along the slope.
 # Sources
 To carry out this project, we drew inspiration from Mike Bostock's examples and this visualization: https://bl.ocks.org/lsbardel/d686414f38742cb60c3bf3f21b79b9df (to make the waves).
 
-Translated with www.DeepL.com/Translator
