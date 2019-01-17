@@ -647,7 +647,7 @@ var log_h_mer125=(Math.log(h_mer125)-Math.log(0.001))*1.05/Math.log(10)
 
 	var slider = svgbis.append("g")
     .attr("class", "slider")
-    .attr("transform", "translate(-50,50)");
+    .attr("transform", "translate(20,50)");
                               
 slider.append("line")
     .attr("class", "track")
@@ -684,7 +684,38 @@ slider.append("line")
       //var i = d3.interpolate(0, 510);
       return function(t) { hue(t,139); };
     });
-  
+
+    svgbis.append("polygon").attr('points',"30,20 50,20 50,40 30,40").style("fill","#3393FF").style("opacity",0.5).style("stroke","black")
+    svgbis.append("polygon").attr('points',"30,45 50,45 50,65 30,65").style("fill","#3393FF").style("opacity",0.75).style("stroke","black")
+    svgbis.append("polygon").attr('points',"30,70 50,70 50,90 30,90").style("fill","#3393FF").style("opacity",0.9).style("stroke","black")
+ 
+    svgbis.append("text")
+      .text("Pessimiste")
+      .attr("y", 33)
+      .attr("x", 55)
+      .attr("font-size", 10)
+      .attr("font-family", "monospace")
+    svgbis.append("text")
+      .text("Neutre")
+      .attr("y", 58)
+      .attr("x", 55)
+      .attr("font-size", 10)
+      .attr("font-family", "monospace")
+    svgbis.append("text")
+      .text("Optimiste")
+      .attr("y", 83)
+      .attr("x", 55)
+      .attr("font-size", 10)
+      .attr("font-family", "monospace")
+    svgbis.append("text")
+    	.attr("transform","rotate(270)")
+      .text("Prediction")
+      .attr("y",25)
+      .attr("x",-85)
+      .attr("font-size", 10)
+      .attr("font-family", "monospace")
+    
+ 		
     
   function draw_triangles(y_1,x3_1,color1,y_2,x3_2,color2,y_3,x3_3,color3){
   //svg.selectAll("polygon").remove()
