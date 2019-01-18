@@ -1,5 +1,3 @@
-# seaLevelProjet.github.io
-
 # [Prédiction de la hausse du niveau de la mer](https://sealevelprojet.github.io)
 
 Notre visualisation a pour but de montrer l'évolution du niveau de la mer.
