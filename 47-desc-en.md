@@ -1,6 +1,6 @@
 # seaLevelProjet.github.io
 
-![](seaLevel.png)
+![](47-teaser.png)
 
 # Table of Contents
 1. [Data](#Data)
@@ -9,13 +9,13 @@
 4. [Improvements](#Improvements)
 5. [Sources](#Source)
 
-![](SeaLevel.gif)
+![](47-thumbnail.gif)
 
 
 # Sea Level Rise Prediction
 
 # Data
-Our visualization is intended to show the evolution of sea level. We have retrieved sea level data from 1880 to 2015 based on the assumption that sea level was 0 in 1880. We also have temperature data from 1880 to 2015.
+Our visualization is intended to show the evolution of sea level. We have retrieved sea level data from 1880 to 2015 based on the assuseaLevel.pngmption that sea level was 0 in 1880. We also have temperature data from 1880 to 2015.
 
 In addition, based on these data, we made predictions (on R) of sea level and temperature up to 2400. We have made three predictions: an optimist, a pessimist and an intermediary. For this purpose we used an exponential model by varying the parameter with 3 different values.
 
